@@ -23,7 +23,8 @@ GO CREATE TABLE [dbo].[F_Internet_Sales](
         [LineTotal] [numeric](38, 6) NOT NULL,
         [UnitPrice] [money] NOT NULL,
         [DiscountUnitPrice] [money] NOT NULL,
-        [ActualUnitPrice] AS ([UnitPrice] *((1) - [DiscountUnitPrice])) PERSISTED CONSTRAINT PK_Fact PRIMARY KEY CLUSTERED ([DateKey], [IndividualCustomerKey], [ProductKey])
+        [ActualUnitPrice] AS ([UnitPrice] *((1) - [DiscountUnitPrice])) PERSISTED 
+        CONSTRAINT PK_Fact PRIMARY KEY CLUSTERED ([DateKey], [IndividualCustomerKey], [ProductKey])
     )
 GO
 ALTER TABLE [dbo].[F_Internet_Sales] WITH CHECK
